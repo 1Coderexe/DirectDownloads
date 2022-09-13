@@ -2,7 +2,11 @@ from selenium import webdriver
 import time
 
 PATH = 'C:/Program Files (x86)/chromedriver.exe'
-driver = webdriver.Chrome(executable_path=PATH)
+
+options = webdriver.ChromeOptions()
+options.add_experimental_option('excludeSwitches', ['enable-logging'])
+
+driver = webdriver.Chrome(executable_path=PATH, options=options)
 
 driver.get("https://sislogin.edgenuity.com/")
 driver.maximize_window()
